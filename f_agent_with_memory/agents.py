@@ -49,7 +49,7 @@ def recall_user_preferences(tool_context: ToolContext) -> Dict[str, Any]:
 # --- 2. Define the Specialist "Tool" Agent ---
 planner_tool_agent = LlmAgent(
     name="PlannerToolAgent",
-    model="gemini-2.5-flash",
+    model="gemini-flash-latest",
     description="A specialist that finds activities and restaurants based on a user's request and preferences.",
     instruction="""
     You are a planning assistant. Based on the user's request and their provided preferences, find one activity and one restaurant in Sunnyvale.
@@ -62,7 +62,7 @@ planner_tool_agent = LlmAgent(
 # --- 3. Define the Main Coordinator Agent ---
 root_agent = LlmAgent(
     name="MemoryCoordinatorAgent",
-    model="gemini-2.5-flash",
+    model="gemini-flash-latest",
     instruction="""
     You are a highly intelligent, personalized trip planner with a persistent memory.
     1. RECALL FIRST: At the absolute beginning of the conversation, your first action MUST be to call the `recall_user_preferences` tool.

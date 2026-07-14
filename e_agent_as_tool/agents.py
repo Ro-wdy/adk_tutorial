@@ -16,7 +16,7 @@ load_dotenv()
 
 location_scout_agent = Agent(
     name="LocationScoutAgent",
-    model="gemini-2.5-flash",
+    model="gemini-flash-latest",
     tools=[google_search],
     description="Finds a specific type of location (like a museum, restaurant, or park) based on a user's request in or around Sunnyvale, CA. Returns only the name of the location.",
     instruction="""
@@ -28,7 +28,7 @@ location_scout_agent = Agent(
 
 logistics_validator_agent = Agent(
     name="LogisticsValidatorAgent",
-    model="gemini-2.5-flash",
+    model="gemini-flash-latest",
     tools=[google_search],
     description="Calculates the travel time between two locations or finds the operating hours for a single location.",
     instruction="""
@@ -43,7 +43,7 @@ logistics_validator_agent = Agent(
 
 trip_architect_agent = Agent(
     name="TripArchitectAgent",
-    model="gemini-2.5-flash",
+    model="gemini-flash-latest",
     instruction="""
     You are an Autonomous Trip Architect. Your goal is to take a single user request and build a complete, logistically-sound itinerary in one go, without asking for feedback. You must make intelligent decisions and corrections on the user's behalf.
 
