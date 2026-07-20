@@ -16,7 +16,7 @@ tools = toolbox.load_toolset('trip-planner-tools')
 
 # Define the Trip Agent
 root_agent = Agent(
-    model='gemini-flash-latest',
+    model='gemini-3.1-flash-lite',
     name='trip_planner_agent',
     description='Agent that helps users plan trips by finding destinations.',
     instruction="""

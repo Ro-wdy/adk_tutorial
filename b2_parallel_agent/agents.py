@@ -23,7 +23,7 @@ concert_finder_agent = Agent(
 # restaurant_finder_agent = foodie_agent.copy(update={"output_key": "restaurant_result"})
 restaurant_finder_agent = Agent(
     name="restaurant_finder_agent",
-    model="gemini-flash-latest",
+    model='gemini-3.1-flash-lite',
     tools=[google_search],
     instruction="""You are an expert food critic. Your goal is to find the best restaurant based on a user's request.
 

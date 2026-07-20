@@ -15,7 +15,7 @@ def exit_loop(tool_context: ToolContext):
 # Agent 1: Proposes an initial plan
 planner_agent = Agent(
     name="planner_agent", 
-    model="gemini-flash-latest", 
+    model='gemini-3.1-flash-lite', 
     tools=[google_search],
     instruction="You are a trip planner. Based on the user's request, propose a single activity and a single restaurant. Output only the names, like: 'Activity: Exploratorium, Restaurant: La Mar'.",
     output_key="current_plan"
@@ -23,7 +23,7 @@ planner_agent = Agent(
 
 # Agent 2 (in loop): Critiques the plan
 critic_agent = Agent(
-    name="critic_agent", model="gemini-flash-latest", tools=[google_search],
+    name="critic_agent", model="gemini-3.1-flash-lite", tools=[google_search],
     instruction=f"""You are a logistics expert. Your job is to critique a travel plan. The user has a strict constraint: total travel time must be short.
     Current Plan: {{current_plan}}
     Use your tools to check the travel time between the two locations.
@@ -35,7 +35,7 @@ critic_agent = Agent(
 # Agent 3 (in loop): Refines the plan
 refiner_agent = Agent(
     name="refiner_agent", 
-    model="gemini-flash-latest", 
+    model='gemini-3.1-flash-lite', 
     tools=[google_search],
     instruction=f"""You are a trip planner, refining a plan based on criticism.
     Original Request: {{session.query}}
@@ -48,7 +48,7 @@ refiner_agent = Agent(
 # Agent 4 (in loop): Exits the loop if the plan is good
 exit_agent = Agent(
     name="exit_agent",
-    model="gemini-flash-latest",
+    model='gemini-3.1-flash-lite',
     tools=[exit_loop],
     instruction=f"""You are an exit controller.
     IF the input is '{COMPLETION_PHRASE}', you MUST call the 'exit_loop' tool.

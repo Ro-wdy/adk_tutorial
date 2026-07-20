@@ -6,7 +6,7 @@ load_dotenv()
 
 root_agent = Agent(
     name="planner_agent",
-    model="gemini-flash-latest",
+    model='gemini-3.1-flash-lite',
     description="Agent tasked with generating creative and fun dating plan suggestions",
     instruction="""
         You are a specialized AI assistant tasked with generating creative and fun plan suggestions.

@@ -39,7 +39,7 @@ day_trip_agent = Agent(
 # Note the new `output_key` and the more specific instruction.
 foodie_agent = Agent(
     name="foodie_agent",
-    model="gemini-flash-latest",
+    model="gemini-3.1-flash-lite",
     tools=[google_search],
     instruction="""You are an expert food critic. Your goal is to find the best restaurant based on a user's request.
 
@@ -53,7 +53,7 @@ foodie_agent = Agent(
 # The `{destination}` placeholder is automatically filled by the ADK from the state.
 transportation_agent = Agent(
     name="transportation_agent",
-    model="gemini-flash-latest",
+    model="gemini-3.1-flash-lite",
     tools=[google_search],
     instruction="""You are a navigation assistant. Given a destination, provide clear directions.
     The user wants to go to: {destination}.
@@ -73,7 +73,7 @@ find_and_navigate_agent = SequentialAgent(
 
 weekend_guide_agent = Agent(
     name="weekend_guide_agent",
-    model="gemini-flash-latest",
+    model="gemini-3.1-flash-lite",
     tools=[google_search],
     instruction="You are a local events guide. Your task is to find interesting events, concerts, festivals, and activities happening on a specific weekend."
 )
@@ -128,7 +128,7 @@ Now, analyze the user's request and orchestrate the correct agent.
 # We update the router to know about our new, powerful SequentialAgent.
 router_agent = Agent(
     name="router_agent",
-    model="gemini-flash-latest",
+    model="gemini-3.1-flash-lite",
     instruction=new_router_instruction,
     sub_agents=[weekend_guide_workflow, day_trip_workflow, find_and_navigate_agent, iterative_planner_agent, parallel_planner_agent, custom_agent],
 )
