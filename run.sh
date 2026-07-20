@@ -17,7 +17,7 @@ echo "📡 Session URI: $SESSION_URI"
 echo "🌐 Starting ADK Web UI on http://localhost:8080..."
 echo "📊 Evaluation results and user preferences will now persist across requests!"
 
-adk web \
+.adk_env/bin/adk web \
     --session_service_uri="$SESSION_URI" \
     --host=127.0.0.1 \
     --port=8080 \
